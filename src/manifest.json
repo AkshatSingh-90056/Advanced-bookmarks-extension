@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Bookmarks",
+  "version": "1.0",
+  "description": "A custom bookmark manager that tracks usage.",
+  "permissions": ["bookmarks", "storage", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    :root { 
+      --primary: #1a73e8; --bg: #f8f9fa; --text: #202124; 
+      --border: #dadce0; --danger: #d93025; --card-bg: #ffffff; --hover: #f1f3f4;
+    }
+    [data-theme="dark"] {
+      --primary: #8ab4f8; --bg: #202124; --text: #e8eaed; 
+      --border: #5f6368; --danger: #f28b82; --card-bg: #292a2d; --hover: #3c4043;
+    }
+    body { width: 360px; margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); transition: 0.3s; }
+    
+    .header { background: var(--primary); color: #fff; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+    .header h3 { margin: 0; font-size: 16px; font-weight: 600; }
+    #theme-toggle { background: transparent; border: none; color: white; cursor: pointer; display: flex; align-items: center; }
+    
+    .search-box { padding: 15px 15px 0 15px; }
+    #search-bar { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); font-size: 14px; box-sizing: border-box;}
+    
+    .container { padding: 15px; }
+    .btn-group { display: flex; gap: 10px; margin-bottom: 15px; }
+    button.action-btn { flex: 1; border: none; padding: 10px; border-radius: 6px; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 5px; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    
+    ul { list-style: none; padding: 0; margin: 0; background: var(--card-bg); border-radius: 8px; border: 1px solid var(--border); max-height: 320px; overflow-y: auto; }
+    li { border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 10px 15px; gap: 10px; }
+    li:last-child { border-bottom: none; }
+    li:hover { background: var(--hover); }
+    
+    a { text-decoration: none; color: var(--text); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-grow: 1; }
+    .badge { background: var(--primary); color: #fff; font-size: 11px; padding: 3px 6px; border-radius: 12px; }
+    
+   
+    .pin-btn { background: none; border: none; cursor: pointer; color: var(--border); display: flex; padding: 0; }
+    .pin-btn.active { color: #fbbc04; } 
+    .material-symbols-outlined { font-size: 18px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h3>Smart Bookmarks</h3>
+    <button id="theme-toggle" title="Toggle Theme"><span class="material-symbols-outlined">light_mode</span></button>
+  </div>
+  
+  <div class="search-box">
+    <input type="text" id="search-bar" placeholder="Search bookmarks...">
+  </div>
+
+  <div class="container">
+    <div class="btn-group">
+      <button id="sort-btn" class="action-btn btn-primary"><span class="material-symbols-outlined">sort</span> Sort Bar</button>
+      <button id="delete-btn" class="action-btn btn-danger"><span class="material-symbols-outlined">delete</span> Clean Up</button>
+    </div>
+    
+
+    <div class="btn-group" style="margin-top: -5px;">
+      <button id="export-btn" class="action-btn" style="background: transparent; border: 1px solid var(--border); color: var(--text);">
+        <span class="material-symbols-outlined">download</span> Backup
+      </button>
+      
+      <label for="import-file" class="action-btn" style="background: transparent; border: 1px solid var(--border); color: var(--text); cursor: pointer; text-align: center; display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <span class="material-symbols-outlined">upload</span> Restore
+      </label>
+      <input type="file" id="import-file" style="display: none;" accept=".json">
+    </div>
+    <ul id="bookmark-list"></ul>
+  </div>
+  
+
+  <script type="module" src="popup.js"></script> 
+</body>
+</html>
