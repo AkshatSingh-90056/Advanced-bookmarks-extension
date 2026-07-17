@@ -58,6 +58,7 @@ Because this is a custom developer tool, you can load it directly into your brow
 
 ## Project Structure
 
+```text
 Advanced-bookmarks-extension/
 ├── src/
 │   ├── img/
@@ -69,3 +70,4 @@ Advanced-bookmarks-extension/
 │   └── popup.js            # Main application logic and algorithms
 ├── manifest.json           # Extension configuration (Manifest V3)
 └── README.md
+```
